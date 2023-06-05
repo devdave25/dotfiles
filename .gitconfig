@@ -1,0 +1,14 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = David Alexander
+	email = me@dja.dev
+	username = devdave25
+[alias]
+	lola = log --graph --decorate --abbrev-commit --all --date=local --pretty=format:\"%C(auto)%h%d %C(blue)%an %C(green)%cd %C(red)%GG %C(reset)%s\" --date=local
+	lol = log --graph --decorate --abbrev-commit --all --oneline
+[rebase]
+	autosquash = true
