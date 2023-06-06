@@ -18,10 +18,24 @@ copydir() {
   fi
 }
 
+cleandir() {
+  if [ ! -d $1 ]; then
+    echo "Could not find \"$1\""
+  else
+    echo "Cleaning \"$1\""
+    rm -rf $1
+  fi
+}
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
+    cleandir "${HOME}/.config/nvim"
     copydir "${dotpath}/nvim/." "${HOME}/.config/nvim"
+elif [[ "$OSTYPE" == "msys"* ]]; then
+    # Windows
+    cleandir "${LOCALAPPDATA}/nvim"
+    copydir "${dotpath}/nvim/." "${LOCALAPPDATA}/nvim"
 else
     # Unknown.
-    copydir "${dotpath}/nvim/." "${LOCALAPPDATA}/.config/nvim"
+    echo "Unknown OS - Missing config file copy commands."
 fi

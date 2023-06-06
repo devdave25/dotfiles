@@ -18,10 +18,13 @@ copydir() {
   fi
 }
 
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
-    copydir "${dotpath}/nvim/." "${HOME}/.config/nvim"
+    copydir "${HOME}/.config/nvim/." "${dotpath}/nvim/." 
+elif [[ "$OSTYPE" == "msys"* ]]; then
+    # Windows
+    copydir "${LOCALAPPDATA}/nvim/." "${dotpath}/nvim/."
 else
-    copydir "${LOCALAPPDATA}/.config/nvim/." "${dotpath}/nvim"
+    # Unknown.
+    echo "Unknown OS - Missing config file copy commands."
 fi
