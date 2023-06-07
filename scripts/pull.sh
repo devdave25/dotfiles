@@ -21,6 +21,7 @@ copydir() {
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     copydir "${HOME}/.config/nvim/." "${dotpath}/nvim/." 
+    copydir "${HOME}/.config/tmux/." "${dotpath}/tmux/." 
 elif [[ "$OSTYPE" == "msys"* ]]; then
     # Windows
     copydir "${LOCALAPPDATA}/nvim/." "${dotpath}/nvim/."

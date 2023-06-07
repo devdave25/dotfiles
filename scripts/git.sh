@@ -25,7 +25,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     copyfile "${dotpath}/git/.gitignore_global" "${HOME}/.gitignore_global"
 elif [[ "$OSTYPE" == "msys"* ]]; then
     # Windows
-    copydir "${dotpath}/git/.gitignore_global" "${HOME}/.gitignore_global"
+    copyfile "${dotpath}/git/.gitignore_global" "${HOME}/.gitignore_global"
 else
     # Unknown.
     echo "Unknown OS - Missing config file copy commands."
