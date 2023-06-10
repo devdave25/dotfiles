@@ -14,16 +14,6 @@ tmuxinstall() {
     fi
 }
 
-tpminstall() {
-    plugins_dir="$HOME/.tmux/plugins/tpm"
-
-    if [ ! -d ${plugins_dir} ]; then
-        git clone https://github.com/tmux-plugins/tpm ${plugins_dir}
-    else
-        echo "tpm already installed"
-    fi
-}
-
 copydir() {
   if [ ! -d $1 ]; then
     echo "Could not find \"$1\""
@@ -47,7 +37,6 @@ dotpath=".."
 checksupport
 
 tmuxinstall
-tpminstall
 
 cleandir "${HOME}/.config/tmux"
 copydir "${dotpath}/tmux/." "${HOME}/.config/tmux"
