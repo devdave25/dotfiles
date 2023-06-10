@@ -1,3 +1,5 @@
+# Pushes dotfiles repo -> config files.
+
 dotpath=".."
 
 copyfile() {
