@@ -57,7 +57,7 @@
 
 - [ ] wsl?
 
-### WINDOWS - Cap lock to Esc
+#### WINDOWS - Cap lock to Esc
 
 Set:
 ```
