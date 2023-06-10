@@ -2,60 +2,60 @@
 
 ## Internet / Network
 
-[ ] Google Chrome
-[ ] NordVPN
+- [ ] Google Chrome
+- [ ] NordVPN
 
 ## Communications
 
-[ ] Slack
+- [ ] Slack
 
 ## Terminal
 
-[ ] tmux
-[ ] nvim
+- [ ] tmux
+- [ ] nvim
 
 ## IDE
 
-[ ] Android Studio
-[ ] VS Code
-[ ] Xcode
+- [ ] Android Studio
+- [ ] VS Code
+- [ ] Xcode
 
 ## Development
 
-[ ] NodeJS (if multiple versions needed use `nvm` - Node version manager)
+- [ ] NodeJS (if multiple versions needed use `nvm` - Node version manager)
 
 
 ## Source control
 
-[ ] git
-[ ] Github Desktop
+- [ ] git
+- [ ] Github Desktop
 
 ## Graphics
 
-[ ] Affinity Designer
-[ ] Excalidraw
-[ ] Figma
+- [ ] Affinity Designer
+- [ ] Excalidraw
+- [ ] Figma
 
 ## Other
 
-[ ] Steam
+- [ ] Steam
 
 ## Mac
 
-[ ] RectangleApp
+- [ ] RectangleApp
 
 ## Windows
 
-[ ] Chocolatey
-[ ] Git via choco
+- [ ] Chocolatey
+- [ ] Git via choco
 
-[ ] Doppler (via bash)
-[ ] AWS CLI (online aws installer, use `aws configure` once installed)
+- [ ] Doppler (via bash)
+- [ ] AWS CLI (online aws installer, use `aws configure` once installed)
 
-[ ] pgAdmin
+- [ ] pgAdmin
 
 
-[ ] wsl?
+- [ ] wsl?
 
 ### WINDOWS - Cap lock to Esc
 
