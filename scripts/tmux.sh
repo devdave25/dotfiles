@@ -1,17 +1,25 @@
-
 checksupport() {
-    if [[ ! "$OSTYPE" == "darwin"* ]]; then
-        echo "tmux not supported"
-        exit 1;
-    fi
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "tmux is supported"
+  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "tmux is supported"
+  else
+    echo "tmux is not supported"
+    exit 1
+  fi
 }
 
 tmuxinstall() {
-    if ! command -v tmux &> /dev/null; then
-        brew install tmux
-    else
-        echo "tmux already installed"
+  if ! command -v tmux &>/dev/null; then
+    echo "Installing tmux"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      brew install tmux
+    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+      apt intall tmux
     fi
+  else
+    echo "tmux already installed"
+  fi
 }
 
 copydir() {

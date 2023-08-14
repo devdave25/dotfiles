@@ -26,7 +26,7 @@ vim.opt.ignorecase = true
 -- Theme
 
 -- Colour Settings
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme catppuccin-mocha')
 
 if vim.fn.has('termguicolors') == 1 then
   vim.opt.termguicolors = true

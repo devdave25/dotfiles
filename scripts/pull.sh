@@ -20,14 +20,31 @@ copydir() {
   fi
 }
 
+cleandir() {
+  if [ ! -d $1 ]; then
+    echo "Could not find \"$1\""
+  else
+    echo "Cleaning \"$1\""
+    rm -rf $1
+  fi
+}
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Mac OSX
-    copydir "${HOME}/.config/nvim/." "${dotpath}/nvim/." 
-    copydir "${HOME}/.config/tmux/." "${dotpath}/tmux/." 
+  # Mac OSX
+  copydir "${HOME}/.config/nvim/." "${dotpath}/nvim/."
+  copydir "${HOME}/.config/tmux/." "${dotpath}/tmux/."
+
+  cleandir "${dotpath}/tmux/plugins"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux
+  copydir "${HOME}/.config/nvim/." "${dotpath}/nvim/."
+  copydir "${HOME}/.config/tmux/." "${dotpath}/tmux/."
+
+  cleandir "${dotpath}/tmux/plugins"
 elif [[ "$OSTYPE" == "msys"* ]]; then
-    # Windows
-    copydir "${LOCALAPPDATA}/nvim/." "${dotpath}/nvim/."
+  # Windows
+  copydir "${LOCALAPPDATA}/nvim/." "${dotpath}/nvim/."
 else
-    # Unknown.
-    echo "Unknown OS - Missing config file copy commands."
+  # Unknown.
+  echo "Unknown OS - Missing config file copy commands."
 fi

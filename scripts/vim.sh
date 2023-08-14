@@ -1,3 +1,11 @@
+makedir() {
+  if [ ! -d $1 ]; then
+    mkdir $1
+  else
+    echo "Folder \"$1\" already exists"
+  fi
+}
+
 copydir() {
   if [ ! -d $1 ]; then
     echo "Could not find \"$1\""
@@ -19,26 +27,39 @@ cleandir() {
 dotpath=".."
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Mac OSX
-    if [ ! command -v neovim &> /dev/null ]; then
-        brew install neovim
-    else
-        echo "neovim already installed"
-    fi
+  # Mac OSX
+  if [ ! command -v neovim ] &>/dev/null; then
+    brew install neovim
+  else
+    echo "neovim already installed"
+  fi
 
-    cleandir "${HOME}/.config/nvim"
-    copydir "${dotpath}/nvim/." "${HOME}/.config/nvim"
+  cleandir "${HOME}/.config/nvim"
+  copydir "${dotpath}/nvim/." "${HOME}/.config/nvim"
 elif [[ "$OSTYPE" == "msys"* ]]; then
-    # Windows
-    if [ ! command -v neovim &> /dev/null ]; then
-        choco install neovim -y
-    else
-        echo "neovim already installed"
-    fi
+  # Windows
+  if [ ! command -v neovim ] &>/dev/null; then
+    choco install neovim -y
+  else
+    echo "neovim already installed"
+  fi
 
-    cleandir "${LOCALAPPDATA}/nvim"
-    copydir "${dotpath}/nvim/." "${LOCALAPPDATA}/nvim"
+  cleandir "${LOCALAPPDATA}/nvim"
+  copydir "${dotpath}/nvim/." "${LOCALAPPDATA}/nvim"
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # Linux Ubuntu
+  if [ ! $(command -v nvim >/dev/null) ]; then
+    echo "neovim missing"
+    bash linux-vim.sh
+  else
+    echo "neovim already installed"
+  fi
+
+  makedir ~/.config
+  makedir ~/.config/nvim
+  cleandir "${HOME}/.config/nvim"
+  copydir "${dotpath}/nvim/." "${HOME}/.config/nvim"
 else
-    # Unknown.
-    echo "Unknown OS - Missing config file copy commands."
+  # Unknown.
+  echo "Unknown OS - Missing config file copy commands."
 fi

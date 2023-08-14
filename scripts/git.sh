@@ -21,12 +21,15 @@ copyfile() {
 }
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Mac OSX
-    copyfile "${dotpath}/git/.gitignore_global" "${HOME}/.gitignore_global"
+  # Mac OSX
+  copyfile "${dotpath}/git/.gitignore_global" "${HOME}/.gitignore_global"
 elif [[ "$OSTYPE" == "msys"* ]]; then
-    # Windows
-    copyfile "${dotpath}/git/.gitignore_global" "${HOME}/.gitignore_global"
+  # Windows
+  copyfile "${dotpath}/git/.gitignore_global" "${HOME}/.gitignore_global"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux
+  copyfile "${dotpath}/git/.gitignore_global" "${HOME}/.gitignore_global"
 else
-    # Unknown.
-    echo "Unknown OS - Missing config file copy commands."
+  # Unknown.
+  echo "Unknown OS - Missing config file copy commands."
 fi
