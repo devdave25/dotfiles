@@ -34,6 +34,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
   cleandir "${HOME}/.config/nvim"
   copydir "${dotpath}/nvim/." "${HOME}/.config/nvim"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux
+
+  cleandir "${HOME}/.config/nvim"
+  copydir "${dotpath}/nvim/." "${HOME}/.config/nvim"
 elif [[ "$OSTYPE" == "msys"* ]]; then
   # Windows
 
@@ -41,5 +46,6 @@ elif [[ "$OSTYPE" == "msys"* ]]; then
   copydir "${dotpath}/nvim/." "${LOCALAPPDATA}/nvim"
 else
   # Unknown.
+  echo [[ "$OSTYPE" ]]
   echo "Unknown OS - Missing config file copy commands."
 fi
