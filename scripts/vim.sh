@@ -49,8 +49,8 @@ elif [[ "$OSTYPE" == "msys"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Linux Ubuntu
   if [ ! $(command -v nvim >/dev/null) ]; then
-    echo "neovim missing"
-    bash linux-vim.sh
+    brew install neovim
+    # bash linux-vim.sh
   else
     echo "neovim already installed"
   fi

@@ -1,14 +1,24 @@
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
 [user]
 	name = David Alexander
 	email = me@dja.dev
 	username = devdave25
-[alias]
-	lola = log --graph --decorate --abbrev-commit --all --date=local --pretty=format:\"%C(auto)%h%d %C(blue)%an %C(green)%cd %C(red)%GG %C(reset)%s\" --date=local
-	lol = log --graph --decorate --abbrev-commit --all --oneline
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore_global
+[init]
+	defaultBranch = master
+[fetch]
+    prune = true
 [rebase]
-	autosquash = true
+  autosquash = true
+[alias]
+  stat = status -s -b
+  bl = branch -av
+	lol = log --graph --decorate --abbrev-commit --all --oneline
+  lola = log --graph --decorate --abbrev-commit --all --date=local --pretty=format:\"%C(auto)%h%d %C(blue)%an %C(green)%cd %C(red)%GG %C(reset)%s\" --date=local
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+

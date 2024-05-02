@@ -2,3 +2,4 @@
 .DS_Store
 .TemporaryItems
 .Trashes
+node_modules/

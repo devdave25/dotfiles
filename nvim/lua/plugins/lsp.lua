@@ -22,6 +22,7 @@ return {
   config = function()
     local lsp = require('lsp-zero').preset({})
 
+    -- Setup LSP
     lsp.on_attach(function(_, bufnr)
       local opts = { buffer = bufnr }
 
