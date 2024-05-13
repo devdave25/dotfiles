@@ -1,0 +1,23 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  // toggle explore tree
+  {
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "ctrl+e"
+  },
+  {
+    "command": "workbench.files.action.focusFilesExplorer",
+    "key": "ctrl+e",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "acceptSelectedSuggestion",
+    "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
+  }
+]

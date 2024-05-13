@@ -1,0 +1,225 @@
+{
+  // useful extensions
+  // - Markdown All in One - Yu Zhang
+  // - Vim - vscodevim
+  // - Auto Scroll - Pejman Nikram
+  // - autoscrolldown
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggest.insertMode": "replace",
+  "editor.minimap.enabled": false,
+
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.statusBar.visible": true,
+  "workbench.sideBar.location": "right",
+  "breadcrumbs.enabled": false,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "update.showReleaseNotes": false,
+  "html.format.wrapAttributes": "force",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "files.exclude": {
+    "*-node_modules": true,
+    "*.d.ts": true,
+    "**/*.d.ts": true,
+    "**/node_modules/": true
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.advanced": {},
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "redhat.telemetry.enabled": false,
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "nxConsole.showNodeVersionOnStartup": false,
+  "go.toolsManagement.autoUpdate": true,
+
+  // VIM
+  "vim.enableNeovim": true,
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "<leader><leader>"],
+      "after": ["<space>"]
+    },
+    // repeat q macro
+    {
+      "before": [","],
+      "after": ["@", "q"]
+    },
+    // paste from system register
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "+", "p"]
+    },
+    // yank into system clipboard
+    {
+      "before": ["<leader>", "y"],
+      "after": ["\"", "+", "y"]
+    },
+
+    // replace word with contents of system clipboard without overwriting system clipboard contents
+    {
+      "before": ["<leader>", "r"],
+      "after": ["d", "i", "w", "\"", "0", "P"]
+    },
+    // replace WORD with contents of system clipboard without overwriting system clipboard contents
+    {
+      "before": ["<leader>", "R"],
+      "after": ["d", "i", "W", "\"", "0", "P"]
+    },
+    // Go to bottom of log file
+    {
+      "before": ["<leader>", "G"],
+      "after": ["G", "k", "z", "t"]
+    },
+    // select whole file
+    {
+      "before": ["<leader>", "a"],
+      "after": ["g", "g", "V", "G"]
+    },
+    // global replace
+    {
+      "before": ["<leader>", "s"],
+      "after": [":", "%", "s", "/", "/", "g", "<Left>", "<Left>"]
+    },
+    // open command with 2 leader presses
+    {
+      "before": ["<leader>", "<leader>"],
+      "after": [":"]
+    },
+    // copy test into system clipboard
+    {
+      "before": ["<leader>", "t", "c"],
+      "after": [
+        "v",
+        "a",
+        "B",
+        "$",
+        "o",
+        "k",
+        "\"",
+        "+",
+        "y",
+        "j",
+        "j",
+        "v",
+        "a",
+        "B",
+        "<esc>",
+        "j"
+      ]
+    },
+    // navigate back
+    {
+      "before": ["<tab>"],
+      "after": ["<c-o>"]
+    },
+    // navigate forward
+    {
+      "before": ["<s-tab>"],
+      "after": ["<c-i>"]
+    },
+    // splits
+    { "before": ["<leader>", "v"], "commands": [":vsplit"] },
+    // { "before": ["<leader>", "s"], "commands": [":split"] },
+    // navigate to top pane
+    {
+      "before": ["<leader>", "k"],
+      "after": ["<c-w>", "k"]
+    },
+    // navigate to bottom pane
+    {
+      "before": ["<leader>", "j"],
+      "after": ["<c-w>", "j"]
+    },
+    // navigate to left pane
+    {
+      "before": ["<leader>", "h"],
+      "after": ["<c-w>", "h"]
+    },
+    // navigate to right pane
+    {
+      "before": ["<leader>", "l"],
+      "after": ["<c-w>", "l"]
+    },
+    // Move to the previous diagnostic
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    // Move to the next diagnostic
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    // open file search
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    // open text search
+    {
+      "before": ["<leader>", "f", "g"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    // open terminal
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.createTerminalEditor"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // move visual selection up
+    {
+      "before": ["<S-k>"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    // move visual selection down
+    {
+      "before": ["<S-j>"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    // replace visual selection with contents of system clipboard without overwriting system clipboard contents
+    {
+      "before": ["<leader>", "r"],
+      "after": ["d", "\"", "0", "P"]
+    },
+    // yank visual selection into system clipboard
+    {
+      "before": ["<leader>", "y"],
+      "after": ["\"", "+", "y"]
+    },
+    // search for visual selection
+    {
+      "before": ["/", "/"],
+      "after": ["\"", "a", "y", "/", "<c-r>", "a", "<cr>"]
+    }
+  ]
+}
