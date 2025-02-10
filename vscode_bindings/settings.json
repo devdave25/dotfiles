@@ -9,7 +9,6 @@
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
   "editor.inlineSuggest.enabled": true,
-  "editor.suggest.insertMode": "replace",
   "editor.minimap.enabled": false,
 
   "workbench.colorTheme": "Catppuccin Mocha",
